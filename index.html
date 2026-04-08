@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Lovie ❤️</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" href="favicon.png">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #000000, #1a0010, #33001a);
+  color: white;
+}
+
+/* Canvas hearts */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* Cats */
+.side-image {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 180px;
+  opacity: 0.9;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.left {
+  left: 10px;
+}
+
+.right {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .side-image {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .side-image {
+    display: none;
+  }
+}
+
+/* Content */
+.content {
+  z-index: 2;
+  padding: 60px 30px;
+  margin: 80px auto;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(255, 46, 99, 0.2);
+  max-width: 600px;
+  position: relative;
+}
+
+/* Title */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: #ff4d8d;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px #ff4d8d;
+}
+
+/* Text */
+p {
+  font-size: 18px;
+  color: #ffd1e6;
+}
+
+/* Poem */
+.poem {
+  margin-top: 25px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #ffb3d1;
+}
+
+/* Button */
+button {
+  margin-top: 30px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff2e63, #ff6fa3);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 20px rgba(255, 46, 99, 0.4);
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(255, 46, 99, 0.7);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Cats -->
+<img src="birthdaycat.png" class="side-image left">
+<img src="birthdaycat.png" class="side-image right">
+
+<canvas id="canvas"></canvas>
+
+<div class="content">
+  <h1>Happy Birthday Lovie ❤️</h1>
+
+  <p>You are my favorite story, my favorite dream 💖</p>
+
+  <div class="poem">
+    If I could gather every quiet moment we ever shared,<br>
+    I would turn them into a garden that never fades—<br>
+    where sunflowers 🌻 always face your light,<br>
+    and soft pink flowers 🌸 bloom whenever you smile.<br><br>
+
+    There are parts of me that only exist when I think of you—<br>
+    like petals opening in silence,<br>
+    gentle, fragile, but reaching for something real.<br><br>
+
+    You became my sunlight,<br>
+    the kind that warms without asking,<br>
+    the kind that turns ordinary days into something golden 🌻<br><br>
+
+    And when the world feels heavy,<br>
+    I imagine a field of flowers,<br>
+    where every bloom carries your name,<br>
+    and every breeze whispers your presence 🌸<br><br>
+
+    I don’t just love you—<br>
+    I grow toward you,<br>
+    like flowers searching for light,<br>
+    like something in me that finally found where it belongs.<br><br>
+
+    If one day you forget how deeply you are loved,<br>
+    may every sunflower remember your warmth,<br>
+    and every pink flower 🌸 carry a piece of my heart to you.<br><br>
+
+    Because loving you wasn’t just a moment—<br>
+    it became the place where my heart learned to bloom ❤️
+  </div>
+
+  <button onclick="goNext()">Tap for your surprise 💝</button>
+</div>
+
+<script>
+// Hearts animation
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const hearts = [];
+
+for (let i = 0; i < 60; i++) {
+  hearts.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 2 + 1,
+    speed: Math.random() * 1 + 0.5
+  });
+}
+
+function drawHearts() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "rgba(255, 77, 141, 0.8)";
+  hearts.forEach(h => {
+    ctx.font = `${h.size * 10}px Arial`;
+    ctx.fillText("❤", h.x, h.y);
+
+    h.y -= h.speed;
+
+    if (h.y < -10) {
+      h.y = canvas.height + 10;
+      h.x = Math.random() * canvas.width;
+    }
+  });
+
+  requestAnimationFrame(drawHearts);
+}
+
+drawHearts();
+
+// Next page
+function goNext() {
+  window.location.href = "game.html";
+}
+</script>
+
+</body>
+</html>
