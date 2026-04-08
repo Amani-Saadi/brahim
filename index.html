@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Happy Birthday Lovie ❤️</title>
 
 <!-- Favicon -->
@@ -14,12 +16,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
+
 body {
   margin: 0;
   min-height: 100vh;
   text-align: center;
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+
   background: linear-gradient(135deg, #000000, #1a0010, #33001a);
   color: white;
 }
@@ -51,27 +55,17 @@ canvas {
   right: 10px;
 }
 
-@media (max-width: 768px) {
-  .side-image {
-    width: 120px;
-  }
-}
-
-@media (max-width: 480px) {
-  .side-image {
-    display: none;
-  }
-}
-
 /* Content */
 .content {
   z-index: 2;
   padding: 60px 30px;
   margin: 80px auto;
   border-radius: 25px;
+
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   box-shadow: 0 0 40px rgba(255, 46, 99, 0.2);
+
   max-width: 600px;
   position: relative;
 }
@@ -105,11 +99,14 @@ button {
   padding: 12px 28px;
   border: none;
   border-radius: 30px;
+
   background: linear-gradient(135deg, #ff2e63, #ff6fa3);
   color: white;
   font-size: 16px;
+
   cursor: pointer;
   transition: 0.3s;
+
   box-shadow: 0 0 20px rgba(255, 46, 99, 0.4);
 }
 
@@ -117,6 +114,58 @@ button:hover {
   transform: scale(1.08);
   box-shadow: 0 0 30px rgba(255, 46, 99, 0.7);
 }
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  .content {
+    margin: 60px 20px;
+    padding: 40px 20px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .poem {
+    font-size: 15px;
+  }
+
+  .side-image {
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 26px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .poem {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  /* Hide cats on very small screens */
+  .side-image {
+    display: none;
+  }
+}
+
 </style>
 </head>
 
@@ -169,12 +218,17 @@ button:hover {
 </div>
 
 <script>
-// Hearts animation
+
+// Canvas hearts
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
 
 const hearts = [];
 
@@ -191,6 +245,7 @@ function drawHearts() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   ctx.fillStyle = "rgba(255, 77, 141, 0.8)";
+
   hearts.forEach(h => {
     ctx.font = `${h.size * 10}px Arial`;
     ctx.fillText("❤", h.x, h.y);
@@ -212,6 +267,7 @@ drawHearts();
 function goNext() {
   window.location.href = "game.html";
 }
+
 </script>
 
 </body>
