@@ -71,13 +71,18 @@
             position: relative;
         }
 
-        /* Title */
+        /* Title (UPDATED) */
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 48px;
+            font-size: clamp(18px, 4vw, 42px);
             color: #ff4d8d;
             margin-bottom: 10px;
             text-shadow: 0 0 20px #ff4d8d;
+
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         /* Text */
@@ -125,10 +130,6 @@
                 padding: 40px 20px;
             }
 
-            h1 {
-                font-size: 34px;
-            }
-
             p {
                 font-size: 16px;
             }
@@ -143,10 +144,6 @@
         }
 
         @media (max-width: 480px) {
-
-            h1 {
-                font-size: 26px;
-            }
 
             p {
                 font-size: 14px;
@@ -181,7 +178,7 @@
         <h1>❤️ Happy Birthday Berhoumy lovie cutie ❤️</h1>
 
         <p>💖 You are my soul, my home and my everything 💖</p>
-        orite story
+
         <div class="poem">
             If I could gather every quiet moment we ever shared,<br>
             I would turn them into a garden that never fades<br>
@@ -218,7 +215,6 @@
     </div>
 
     <script>
-
         // Canvas hearts
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
@@ -267,7 +263,6 @@
         function goNext() {
             window.location.href = "game.html";
         }
-
     </script>
 
 </body>
