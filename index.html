@@ -28,7 +28,6 @@
             color: white;
         }
 
-        /* Canvas hearts */
         canvas {
             position: fixed;
             top: 0;
@@ -36,7 +35,6 @@
             z-index: 0;
         }
 
-        /* Cats */
         .side-image {
             position: fixed;
             top: 50%;
@@ -55,7 +53,6 @@
             right: 10px;
         }
 
-        /* Content */
         .content {
             z-index: 2;
             padding: 60px 30px;
@@ -68,23 +65,19 @@
             position: relative;
         }
 
-        /* Title */
         h1 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(22px, 4vw, 42px);
             color: #ff4d8d;
             margin-bottom: 10px;
             text-shadow: 0 0 20px #ff4d8d;
-            text-align: center;
         }
 
-        /* Text */
         p {
             font-size: 18px;
             color: #ffd1e6;
         }
 
-        /* Poem */
         .poem {
             margin-top: 25px;
             font-size: 17px;
@@ -92,7 +85,20 @@
             color: #ffb3d1;
         }
 
-        /* Button */
+        /* NEW IMAGE STYLE */
+        .center-image {
+            width: 220px;
+            max-width: 80%;
+            border-radius: 20px;
+            margin-top: 25px;
+            box-shadow: 0 0 25px rgba(255, 77, 141, 0.5);
+            transition: 0.3s;
+        }
+
+        .center-image:hover {
+            transform: scale(1.05);
+        }
+
         button {
             margin-top: 30px;
             padding: 12px 28px;
@@ -111,7 +117,6 @@
             box-shadow: 0 0 30px rgba(255, 46, 99, 0.7);
         }
 
-        /* Tablet */
         @media (max-width: 768px) {
             .content {
                 margin: 60px 20px;
@@ -131,9 +136,7 @@
             }
         }
 
-        /* Mobile FIXED */
         @media (max-width: 480px) {
-
             p {
                 font-size: 14px;
             }
@@ -147,7 +150,6 @@
                 padding: 10px 20px;
             }
 
-            /* Cats visible + repositioned */
             .side-image {
                 width: 70px;
                 top: auto;
@@ -214,6 +216,9 @@
             Because loving you wasn’t just a moment<br>
             it became the place where my heart learned to bloom ❤️
         </div>
+
+        <!-- NEW IMAGE -->
+        <img src="love.jpg" class="center-image">
 
         <button onclick="goNext()">Tap for your surprise 💝</button>
     </div>
